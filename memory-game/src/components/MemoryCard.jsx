@@ -2,10 +2,36 @@ import React, { Component } from "react";
 import "./MemoryCard.css";
 
 class MemoryCard extends Component {
+  clickHandler() {
+    this.setState({ isFlipped: !this.state.isFlipped });
+  }
+
+  constructor() {
+    super();
+    this.state = { isFlipped: false };
+  }
+
   render() {
+    let memoryCardInnerClass = this.state.isFlipped
+      ? "MemoryCardInner flipped"
+      : "MemoryCardInner";
+
+    // *--- BELOW IS INCORRECT IT SETS VARIABLE AND CHECKS THE VARIABLE AGAIN FOR NO REASON ---*
+    // let memoryCardInnerClass = "MemoryCardInner";
+
+    // memoryCardInnerClass = "MemoryCardInner"
+    //   ? "MemoryCardInner"
+    //   : "MemoryCardInner flipped";
+
     return (
-      <div className="MemoryCard">
-        <img src="https://www.digitalcrafts.com/img/digitalcrafts-logo-white-y.png"></img>
+      <div className="MemoryCard" onClick={this.clickHandler.bind(this)}>
+        <div className={memoryCardInnerClass}>
+          {/* <div className="MemoryCardInner"> */}
+          <div className="MemoryCardBack">
+            <img src="https://www.digitalcrafts.com/img/digitalcrafts-logo-white-y.png"></img>
+          </div>
+          <div className="MemoryCardFront">∆</div>
+        </div>
       </div>
     );
   }
