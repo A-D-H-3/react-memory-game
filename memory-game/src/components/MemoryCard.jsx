@@ -16,13 +16,6 @@ class MemoryCard extends Component {
       ? "MemoryCardInner flipped"
       : "MemoryCardInner";
 
-    // *--- BELOW IS INCORRECT IT SETS VARIABLE AND CHECKS THE VARIABLE AGAIN FOR NO REASON ---*
-    // let memoryCardInnerClass = "MemoryCardInner";
-
-    // memoryCardInnerClass = "MemoryCardInner"
-    //   ? "MemoryCardInner"
-    //   : "MemoryCardInner flipped";
-
     return (
       <div className="MemoryCard" onClick={this.clickHandler.bind(this)}>
         <div className={memoryCardInnerClass}>
